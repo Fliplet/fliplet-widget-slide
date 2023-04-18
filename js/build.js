@@ -11,21 +11,27 @@ Fliplet.Widget.instance({
   render: {
     class: 'swiper-slide',
     template: '<div data-view="content"></div>',
-    ready: function() {
-      /*var thisy = this;
+    ready: function () {
+      Fliplet.Widget.initializeChildren(this.$el, this);
+
+      this.fields = _.assign({
+        requiredForm: [false]
+      }, this.fields)
+
+      var thisy = this;
       if (thisy.fields.requiredForm) {
-      //thisy.id
+        //thisy.id
         if (Fliplet.FormBuilder) {
-        Fliplet.FormBuilder.getAll().then(function(forms) {
-          thisy.preventNext = true
-        });
+          Fliplet.FormBuilder.getAll().then(function (forms) {
+            thisy.preventNext = true
+          });
+        }
       }
-      }*/
-      /*if (Fliplet.FormBuilder) {
-        Fliplet.FormBuilder.getAll().then(function(forms) {
+      if (Fliplet.FormBuilder) {
+        Fliplet.FormBuilder.getAll().then(function (forms) {
           if (thisy.fields.requiredForm) {
             thisy.data.sliderRequiredForms.push({
-              sliderId: $(forms[0].instance.$el.closest('[name="slide"]')).attr('data-helper-id')
+              sliderId: $(forms[0].instance.$el.closest('[name="slide"]')).attr('data-helper-id'),
               slideIndex: thisy.data.slideIndex,
               formIndex: thisy.data.formCount,
               form: forms[thisy.data.formCount]
@@ -37,7 +43,7 @@ Fliplet.Widget.instance({
       } else {
         thisy.data.slideIndex++;
       }
-      console.log(thisy.data.sliderRequiredForms);*/
+      // console.log(thisy.data.sliderRequiredForms);
     }
   },
   views: [

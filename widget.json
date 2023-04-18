@@ -3,12 +3,16 @@
   "package": "com.fliplet.slide",
   "version": "1.0.0",
   "icon": "img/icon.png",
-  "tags": ["type:component", "category:general"],
+  "tags": [
+    "type:component",
+    "category:general"
+  ],
   "provider_only": false,
   "references": [
     "content:richContent"
   ],
   "settings": {
+    "supportsDynamicContext": true,
     "interfaceWidgetPackage": "com.fliplet.helper-configuration"
   },
   "html_tag": "div",

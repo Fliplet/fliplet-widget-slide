@@ -8,7 +8,7 @@ Fliplet.Widget.generateInterface({
       label: 'Is there a required form on this slide?',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
-      change: function(value) {
+      change: function (value) {
         Fliplet.Helper.field('requiredFormForwardNavigation').toggle(value);
         Fliplet.Helper.field('requiredFormBackwardNavigation').toggle(value);
       }
@@ -19,7 +19,7 @@ Fliplet.Widget.generateInterface({
       label: 'Prevent users from moving to the next slide?',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
-      ready: function(el) {
+      ready: function (el) {
         Fliplet.Helper.field('requiredFormForwardNavigation').toggle(
           Fliplet.Helper.field('requiredForm').get()
         );
@@ -31,7 +31,7 @@ Fliplet.Widget.generateInterface({
       label: 'Prevent users from moving to the previous slide?',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
-      ready: function(el) {
+      ready: function (el) {
         Fliplet.Helper.field('requiredFormBackwardNavigation').toggle(
           Fliplet.Helper.field('requiredForm').get()
         );
