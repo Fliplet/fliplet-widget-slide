@@ -12,7 +12,7 @@
     "content:richContent"
   ],
   "settings": {
-    "supportsDynamicContext": true,
+    "asyncRendering": true,
     "interfaceWidgetPackage": "com.fliplet.helper-configuration"
   },
   "html_tag": "div",

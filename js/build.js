@@ -15,11 +15,11 @@ Fliplet.Widget.instance({
       Fliplet.Widget.initializeChildren(this.$el, this);
 
       this.fields = _.assign({
-        requiredForm: [false]
+        requiredForm: false
       }, this.fields)
 
       var thisy = this;
-      if (thisy.fields.requiredForm) {
+      if (thisy.fields.requiredForm == true) {
         //thisy.id
         if (Fliplet.FormBuilder) {
           Fliplet.FormBuilder.getAll().then(function (forms) {
@@ -29,7 +29,7 @@ Fliplet.Widget.instance({
       }
       if (Fliplet.FormBuilder) {
         Fliplet.FormBuilder.getAll().then(function (forms) {
-          if (thisy.fields.requiredForm) {
+          if (thisy.fields.requiredForm == true) {
             thisy.data.sliderRequiredForms.push({
               sliderId: $(forms[0].instance.$el.closest('[name="slide"]')).attr('data-helper-id'),
               slideIndex: thisy.data.slideIndex,
