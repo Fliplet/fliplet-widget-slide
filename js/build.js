@@ -20,7 +20,6 @@ Fliplet.Widget.instance({
 
       var thisy = this;
       if (thisy.fields.requiredForm == true) {
-        //thisy.id
         if (Fliplet.FormBuilder) {
           Fliplet.FormBuilder.getAll().then(function (forms) {
             thisy.preventNext = true
@@ -40,38 +39,6 @@ Fliplet.Widget.instance({
           thisy.data.formCount++;
           thisy.data.slideIndex++;
         });
-
-
-
-        // var formName;
-        // Fliplet.Hooks.on('beforeFormSubmit', function () {
-        //   Fliplet.FormBuilder.get()
-        //     .then(function (form) {
-        //       if (form) {
-        //         formName = form.name
-        //       }
-        //     });
-        // });
-
-        // Fliplet.Hooks.on('afterFormSubmit', function (response) {
-        //   return Fliplet.App.Storage.set(formName, response.result.id)
-        // });
-
-        // Fliplet.App.Storage.get(formName).then(function (value) {
-        //   if (value) {
-        //     Fliplet.FormBuilder.get().then(function (form) {
-        //       if (form) {
-        //         form.load(function () {
-        //           return Fliplet.DataSources.connect().then(function (connection) {
-        //             return connection.findById(value);
-        //           });
-        //         });
-        //       }
-        //     });
-        //   }
-        // });
-
-
       } else {
         thisy.data.slideIndex++;
       }
