@@ -100,7 +100,7 @@ fl-helper[name="slide"] {
     left: 0px;
   }
 
-  [data-widget-package="com.fliplet.slider"] .swiper-wrapper .swiper-slide {
+  /* [data-widget-package="com.fliplet.slider"] .swiper-wrapper .swiper-slide {
     pointer-events: all!important;
-  }
-  
+  } */
+  .swiper-slide-active .swiper-slide { pointer-events: all!important;}
