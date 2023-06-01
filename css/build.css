@@ -99,6 +99,10 @@ fl-helper[name="slide"] {
     top: -74px;
     left: 0px;
   }
+  
+  .mode-interact .swiper-container-initialized .swiper-wrapper {
+    transform: 0;
+  }
 
   /* [data-widget-package="com.fliplet.slider"] .swiper-wrapper .swiper-slide {
     pointer-events: all!important;

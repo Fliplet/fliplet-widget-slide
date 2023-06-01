@@ -11,8 +11,8 @@ Fliplet.Widget.instance({
   render: {
     class: 'swiper-slide',
     template: '<div data-view="content"></div>',
-    ready: function () {
-      Fliplet.Widget.initializeChildren(this.$el, this);
+    ready: async function () {
+      await Fliplet.Widget.initializeChildren(this.$el, this);
 
       this.fields = _.assign({
         requiredForm: false
