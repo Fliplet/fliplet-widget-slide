@@ -101,7 +101,7 @@ fl-helper[name="slide"] {
   }
   
   .mode-interact .swiper-container-initialized .swiper-wrapper {
-    transform: 0;
+    transform: none!important;
   }
 
   /* [data-widget-package="com.fliplet.slider"] .swiper-wrapper .swiper-slide {
