@@ -86,7 +86,22 @@ fl-helper[name="slide"] {
   .mode-interact fl-helper[name='slide']::before {
     content: 'Slide';
   }
-  
+  .mode-interact [data-name='slide']::before {
+    content: 'Slide';
+  }
+  .mode-interact [data-name='slide']:before {
+    /* border-bottom-left-radius: 10px; */
+    border-bottom-right-radius: 10px;
+    cursor: grab;
+    position: relative;
+    padding: 5px;
+    font-size: 12px;
+    color: white;
+    background: darkorange;
+    top: 24px;
+    left: 0px;
+    z-index: 9;
+  }
  .mode-interact fl-helper[name='slide']:before {
     /* border-bottom-left-radius: 10px; */
     border-bottom-right-radius: 10px;
@@ -98,6 +113,7 @@ fl-helper[name="slide"] {
     background: darkorange;
     top: -74px;
     left: 0px;
+    z-index: 9;
   }
   
   .mode-interact .swiper-container-initialized .swiper-wrapper {
