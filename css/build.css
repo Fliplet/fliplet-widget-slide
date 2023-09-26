@@ -138,7 +138,7 @@ fl-helper[name="slide"] {
   transform: none !important;
 }
 
-/* [data-widget-package="com.fliplet.slide-new"] .swiper-wrapper .swiper-slide {
+/* [data-widget-package="com.fliplet.slide"] .swiper-wrapper .swiper-slide {
     pointer-events: all!important;
   } */
 .swiper-slide-active .swiper-slide {
