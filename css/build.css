@@ -98,25 +98,33 @@ fl-helper[name="slide"] {
   transform: translate3d(0, 0, 0);
 }
 
-.mode-interact fl-helper[name='slide']::before {
+/* .mode-interact fl-helper[name='slide']::before {
   content: 'Slide';
-}
+} */
 
 .mode-interact [data-name='slide']::before {
   content: 'Slide';
+}
+
+.mode-interact [data-helper="slide"] {
+  position: relative;
+}
+
+.mode-interact [data-helper="slide"]::before {
+  position: relative;
 }
 
 .mode-interact [data-name='slide']:before {
   /* border-bottom-left-radius: 10px; */
   border-bottom-right-radius: 10px;
   cursor: grab;
-  position: relative;
+  position: absolute;
   padding: 5px;
   font-size: 12px;
   color: white;
   background: darkorange;
-  top: -45px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 9;
 }
 
