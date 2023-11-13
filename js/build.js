@@ -46,7 +46,6 @@ Fliplet.Widget.instance({
       } else {
         thisy.data.slideIndex++;
       }
-      // console.log(thisy.data.sliderRequiredForms);
     }
   },
   views: [
