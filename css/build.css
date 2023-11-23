@@ -41,9 +41,9 @@ fl-helper[name="slide"] {
   width: 100% !important;
 }
 
-.fl-with-top-menu .swiper-pagination-progressbar {
+/* .fl-with-top-menu .swiper-pagination-progressbar {
   top: 45px !important;
-}
+} */
 
 .swiper-container-initialized .swiper-wrapper {
   padding-bottom: 40px;
