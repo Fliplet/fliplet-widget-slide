@@ -1,7 +1,6 @@
 Fliplet.Widget.generateInterface({
   title: 'slide',
   fields: [
-    { name: 'Name', type: 'text', label: 'Name', default: 'MySlide' },
     {
       name: 'requiredForm',
       type: 'radio',
