@@ -71,8 +71,8 @@ fl-helper[name="slide"] {
 }
 
 .mode-interact .swiper-container-autoheight {
-  height: calc(100vh - 90px) !important;
-  overflow-y: scroll;
+  height: 100vh!important;
+  overflow-y: auto;
 }
 
 [data-helper="slide"].swiper-slide {
