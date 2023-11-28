@@ -18,33 +18,31 @@ Fliplet.Widget.instance({
         requiredForm: false
       }, this.fields);
 
-      var thisy = this;
+      var thisSlide = this;
 
-      if (thisy.fields.requiredForm === true) {
-        if (Fliplet.FormBuilder) {
-          Fliplet.FormBuilder.getAll().then(function() {
-            thisy.preventNext = true;
-          });
-        }
+      if (Fliplet.FormBuilder && thisSlide.fields.requiredForm) {
+        Fliplet.FormBuilder.getAll().then(function() {
+          thisSlide.preventNext = true;
+        });
       }
 
       if (Fliplet.FormBuilder) {
         Fliplet.FormBuilder.getAll().then(function(forms) {
-          if (thisy.fields.requiredForm === true) {
-            thisy.data.sliderRequiredForms.push({
+          if (thisSlide.fields.requiredForm === true) {
+            thisSlide.data.sliderRequiredForms.push({
               sliderId: $(forms[0].instance.$el
                 .closest('[name="slide"]')).attr('data-helper-id'),
-              slideIndex: thisy.data.slideIndex,
-              formIndex: thisy.data.formCount,
-              form: forms[thisy.data.formCount]
+              slideIndex: thisSlide.data.slideIndex,
+              formIndex: thisSlide.data.formCount,
+              form: forms[thisSlide.data.formCount]
             });
           }
 
-          thisy.data.formCount++;
-          thisy.data.slideIndex++;
+          thisSlide.data.formCount++;
+          thisSlide.data.slideIndex++;
         });
       } else {
-        thisy.data.slideIndex++;
+        thisSlide.data.slideIndex++;
       }
     }
   },
