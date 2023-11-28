@@ -12,13 +12,13 @@ Fliplet.Widget.instance({
     class: 'swiper-slide',
     template: '<div data-view="content"></div>',
     ready: async function() {
-      await Fliplet.Widget.initializeChildren(this.$el, this);
+      var thisSlide = this;
+      // await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
       this.fields = _.assign({
         requiredForm: false
       }, this.fields);
 
-      var thisSlide = this;
 
       if (Fliplet.FormBuilder && thisSlide.fields.requiredForm) {
         Fliplet.FormBuilder.getAll().then(function() {
@@ -27,7 +27,7 @@ Fliplet.Widget.instance({
       }
 
       if (Fliplet.FormBuilder) {
-        Fliplet.FormBuilder.getAll().then(function(forms) {
+        Fliplet.FormBuilder.getAll().then(async function(forms) {
           if (thisSlide.fields.requiredForm === true) {
             thisSlide.data.sliderRequiredForms.push({
               sliderId: $(forms[0].instance.$el
@@ -40,9 +40,11 @@ Fliplet.Widget.instance({
 
           thisSlide.data.formCount++;
           thisSlide.data.slideIndex++;
+          await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
         });
       } else {
         thisSlide.data.slideIndex++;
+        await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
       }
     }
   },
@@ -50,7 +52,6 @@ Fliplet.Widget.instance({
     {
       name: 'content',
       displayName: 'Slide content',
-      // eslint-disable-next-line max-len
       placeholder: '<div class="well text-center">Add components to build your slide</div>'
     }
   ]
