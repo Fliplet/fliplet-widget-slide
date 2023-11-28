@@ -13,7 +13,6 @@ Fliplet.Widget.instance({
     template: '<div data-view="content"></div>',
     ready: async function() {
       var thisSlide = this;
-      // await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
       this.fields = _.assign({
         requiredForm: false
