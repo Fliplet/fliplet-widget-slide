@@ -1,5 +1,5 @@
 Fliplet.Widget.instance({
-  name: 'slide',
+  name: 'Slide',
   childOf: ['slider'],
   displayName: 'Slide',
   icon: 'fa-square-o',
@@ -32,7 +32,7 @@ Fliplet.Widget.instance({
           if (thisSlide.fields.requiredForm === true) {
             thisSlide.data.sliderRequiredForms.push({
               sliderId: $(forms[0].instance.$el
-                .closest('[name="slide"]')).attr('data-helper-id'),
+                .closest('[name="Slide"]')).attr('data-helper-id'),
               slideIndex: thisSlide.data.slideIndex,
               formIndex: thisSlide.data.formCount,
               form: forms[thisSlide.data.formCount]
