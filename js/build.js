@@ -14,9 +14,11 @@ Fliplet.Widget.instance({
     ready: async function() {
       var thisSlide = this;
 
-      this.fields = _.assign({
+      await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
+
+      thisSlide.fields = _.assign({
         requiredForm: false
-      }, this.fields);
+      }, thisSlide.fields);
 
 
       if (Fliplet.FormBuilder && thisSlide.fields.requiredForm) {
@@ -39,11 +41,9 @@ Fliplet.Widget.instance({
 
           thisSlide.data.formCount++;
           thisSlide.data.slideIndex++;
-          await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
         });
       } else {
         thisSlide.data.slideIndex++;
-        await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
       }
     }
   },
