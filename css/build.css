@@ -72,6 +72,10 @@ fl-helper[name="slide"] {
   overflow-y: auto;
 }
 
+.swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
+  overflow: auto;
+}
+
 [data-name="slide"].swiper-slide {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
