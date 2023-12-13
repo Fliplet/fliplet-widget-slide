@@ -20,13 +20,10 @@ fl-helper[name="slide"] {
 
 .mode-interact [data-name='slide']::before {
   content: 'Slide';
-}
-
-.mode-interact [data-name="slide"] {
   position: relative;
 }
 
-.mode-interact [data-name="slide"]::before {
+.mode-interact [data-name="slide"] {
   position: relative;
 }
 
@@ -65,7 +62,7 @@ fl-helper[name="slide"] {
   font-size: 12px;
   color: white;
   background: darkorange;
-  top: 0;
+  top: 40px;
   z-index: 1;
   left: 0;
 }
