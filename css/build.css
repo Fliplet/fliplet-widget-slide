@@ -75,6 +75,7 @@ fl-helper[name="slide"] {
 [data-name="slide"].swiper-slide {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  overflow-y: scroll;
 }
 
 .mode-interact [data-name="slide"].swiper-slide {
