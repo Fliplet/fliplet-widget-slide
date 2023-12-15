@@ -1,5 +1,5 @@
 Fliplet.Widget.generateInterface({
-  title: 'Slide',
+  title: 'slide',
   fields: [
     {
       name: 'requiredForm',
