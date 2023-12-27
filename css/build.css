@@ -77,10 +77,6 @@ fl-helper[name="slide"] {
   transform: translate3d(0, 0, 0)!important;
 } */
 
-.swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
-  width: 100%!important;
-}
-
 .mode-interact [data-name="slide"].swiper-slide {
   opacity: 1 !important;
 }
