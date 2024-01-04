@@ -1,8 +1,6 @@
 Fliplet.Widget.instance({
   name: 'slide',
   childOf: ['slider'],
-  displayName: 'slide',
-  icon: 'fa-square-o',
   data: {
     slideIndex: 0,
     formCount: 0,
