@@ -3,31 +3,31 @@ fl-helper[name="slide"] {
   padding-top: 0;
 }
 
-.mode-interact [data-name="slide"] {
+.mode-interact [data-widget-package="com.fliplet.slide"] {
   padding-bottom: 40px;
   padding-top: 40px;
   position: relative;
 }
 
-[data-name="slide"] .small-card-detail-overlay-panel,
-[data-name="slide"] .news-feed-detail-overlay.open {
+[data-widget-package="com.fliplet.slide"] .small-card-detail-overlay-panel,
+[data-widget-package="com.fliplet.slide"] .news-feed-detail-overlay.open {
   min-height: 100vh;
 }
 
-[data-name="slide"] .news-feed-detail-overlay.open .news-feed-list-detail-content-scroll-wrapper {
+[data-widget-package="com.fliplet.slide"] .news-feed-detail-overlay.open .news-feed-list-detail-content-scroll-wrapper {
   height: 100vh;
 }
 
-.mode-interact [data-name='slide']::before {
+.mode-interact [data-widget-package="com.fliplet.slide"]::before {
   content: 'Slide';
   position: relative;
 }
 
-.mode-interact [data-name="slide"] {
+.mode-interact [data-widget-package="com.fliplet.slide"] {
   position: relative;
 }
 
-.mode-interact [data-name='slide']:before {
+.mode-interact [data-widget-package="com.fliplet.slide"]:before {
   border-bottom-right-radius: 10px;
   cursor: grab;
   position: absolute;
@@ -40,7 +40,11 @@ fl-helper[name="slide"] {
   z-index: 9;
 }
 
-[data-name="slide"].swiper-slide-active .swiper-slide {
+[data-widget-package="com.fliplet.slide"].swiper-slide-active {
+  z-index: 5;
+}
+
+[data-widget-package="com.fliplet.slide"].swiper-slide-active .swiper-slide {
   pointer-events: all !important;
 }
 
@@ -54,11 +58,11 @@ fl-helper[name="slide"] {
   padding-bottom: 15px;
 }
 
-.mode-interact [data-name="slide"] [data-view="content"]::before {
+.mode-interact [data-widget-package="com.fliplet.slide"] [data-view="content"]::before {
   content: 'Slide content';
 }
 
-.mode-interact [data-name="slide"] [data-view="content"]:before {
+.mode-interact [data-widget-package="com.fliplet.slide"] [data-view="content"]:before {
   border-bottom-right-radius: 10px;
   cursor: grab;
   position: absolute;
@@ -76,11 +80,11 @@ fl-helper[name="slide"] {
   overflow-y: auto;
 }
 
-/* [data-name="slide"].swiper-slide {
+/* [data-widget-package="com.fliplet.slide"].swiper-slide {
   -webkit-transform: translate3d(0, 0, 0)!important;
   transform: translate3d(0, 0, 0)!important;
 } */
 
-.mode-interact [data-name="slide"].swiper-slide {
+.mode-interact [data-widget-package="com.fliplet.slide"].swiper-slide {
   opacity: 1 !important;
 }
