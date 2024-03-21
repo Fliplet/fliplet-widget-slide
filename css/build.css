@@ -44,6 +44,10 @@ fl-helper[name="slide"] {
   pointer-events: all !important;
 }
 
+[data-name="slide"].swiper-slide-active {
+  z-index: 5;
+}
+
 .mode-interact [data-name="slide"] [data-view="content"] {
   border: 2px solid darkorange;
   padding-top: 15px;
