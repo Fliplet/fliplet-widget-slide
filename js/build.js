@@ -10,7 +10,7 @@ Fliplet.Widget.instance({
     class: 'swiper-slide',
     template: '<div data-view="content"></div>',
     ready: async function() {
-      var thisSlide = this;
+      const thisSlide = this;
 
       await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
