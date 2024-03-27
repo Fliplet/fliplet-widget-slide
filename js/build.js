@@ -19,15 +19,11 @@ Fliplet.Widget.instance({
       }, thisSlide.fields);
 
 
-      if (Fliplet.FormBuilder && thisSlide.fields.requiredForm) {
-        Fliplet.FormBuilder.getAll().then(function() {
-          thisSlide.preventNext = true;
-        });
-      }
-
       if (Fliplet.FormBuilder) {
-        Fliplet.FormBuilder.getAll().then(async function(forms) {
-          if (thisSlide.fields.requiredForm === true) {
+        if (thisSlide.fields.requiredForm) {
+          Fliplet.FormBuilder.getAll().then(forms => {
+            thisSlide.preventNext = true;
+
             thisSlide.data.sliderRequiredForms.push({
               sliderId: $(forms[0].instance.$el
                 .closest('[name="slide"]')).attr('data-helper-id'),
@@ -35,11 +31,11 @@ Fliplet.Widget.instance({
               formIndex: thisSlide.data.formCount,
               form: forms[thisSlide.data.formCount]
             });
-          }
+          });
+        }
 
-          thisSlide.data.formCount++;
-          thisSlide.data.slideIndex++;
-        });
+        thisSlide.data.formCount++;
+        thisSlide.data.slideIndex++;
       } else {
         thisSlide.data.slideIndex++;
       }

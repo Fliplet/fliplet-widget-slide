@@ -80,11 +80,6 @@ fl-helper[name="slide"] {
   overflow-y: auto;
 }
 
-/* [data-widget-package="com.fliplet.slide"].swiper-slide {
-  -webkit-transform: translate3d(0, 0, 0)!important;
-  transform: translate3d(0, 0, 0)!important;
-} */
-
 .mode-interact [data-widget-package="com.fliplet.slide"].swiper-slide {
   opacity: 1 !important;
 }
