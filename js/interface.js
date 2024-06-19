@@ -5,6 +5,7 @@ Fliplet.Widget.generateInterface({
       name: 'requiredForm',
       type: 'radio',
       label: 'Is there a required form on this slide?',
+      description: 'Note, that selecting the screen redirection on the form settings will not work',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
       change: function(value) {
