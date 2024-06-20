@@ -1,3 +1,5 @@
+var requiredFormDescription = '';
+
 Fliplet.Widget.generateInterface({
   title: 'slide',
   fields: [
@@ -5,10 +7,11 @@ Fliplet.Widget.generateInterface({
       name: 'requiredForm',
       type: 'radio',
       label: 'Is there a required form on this slide?',
-      description: 'Note, that selecting the screen redirection on the form settings will not work',
+      description: requiredFormDescription,
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
       change: function(value) {
+        requiredFormDescription = value ? 'Note, that selecting the screen redirection on the form settings will not work' : '';
         Fliplet.Helper.field('requiredFormForwardNavigation').toggle(value);
         Fliplet.Helper.field('requiredFormBackwardNavigation').toggle(value);
       }
