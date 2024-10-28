@@ -54,7 +54,7 @@ Fliplet.Widget.instance({
         let totalHeight = bottomBarHeight + viewportHeaderHeight + notchHeight;
         let slideHeight = `calc(100vh - ${totalHeight}px)`;
 
-        $slideElement.css('height', slideHeight);
+        $slideElement.css('min-height', slideHeight);
       }
     }
   },
