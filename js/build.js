@@ -11,6 +11,8 @@ Fliplet.Widget.instance({
     template: '<div data-view="content"></div>',
     ready: async function() {
       const thisSlide = this;
+      let $slide = $(thisSlide);
+      let $slideElement = $($slide[0].el);
 
       await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
@@ -38,6 +40,21 @@ Fliplet.Widget.instance({
         thisSlide.data.slideIndex++;
       } else {
         thisSlide.data.slideIndex++;
+      }
+
+      setMinSlideHeight();
+
+      function setMinSlideHeight() {
+        let $bottomBar = $('[data-widget-package="com.fliplet.menu.bottom-bar"]:visible');
+        let $viewportHeader = $('.fl-viewport-header:visible');
+        let dataNotch = $('[data-has-notch]');
+        let bottomBarHeight = $bottomBar.length ? $bottomBar.outerHeight() : 0;
+        let viewportHeaderHeight = $viewportHeader.length ? $viewportHeader.outerHeight() : 0;
+        let notchHeight = dataNotch.length ? 34 : 0
+        let totalHeight = bottomBarHeight + viewportHeaderHeight + notchHeight;
+        let slideHeight = `calc(100vh - ${totalHeight}px)`;
+
+        $slideElement.css('height', slideHeight);
       }
     }
   },
