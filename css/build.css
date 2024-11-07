@@ -1,0 +1,87 @@
+fl-helper[name="slide"] {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+[data-widget-package="com.fliplet.slide"] {
+  min-height: 100vh;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"] {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  position: relative;
+}
+
+[data-widget-package="com.fliplet.slide"] .small-card-detail-overlay-panel,
+[data-widget-package="com.fliplet.slide"] .small-card-detail-overlay,
+[data-widget-package="com.fliplet.slide"] .news-feed-detail-overlay.open,
+[data-widget-package="com.fliplet.slide"] .news-feed-detail-overlay.open .news-feed-list-detail-content-scroll-wrapper {
+  min-height: 100vh;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"]::before {
+  content: 'Slide';
+  position: relative;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"] {
+  position: relative;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"]:before {
+  border-bottom-right-radius: 10px;
+  cursor: grab;
+  position: absolute;
+  padding: 5px;
+  font-size: 12px;
+  color: white;
+  background: darkorange;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+[data-widget-package="com.fliplet.slide"].swiper-slide-active {
+  z-index: 5;
+}
+
+[data-widget-package="com.fliplet.slide"].swiper-slide-active .swiper-slide {
+  pointer-events: all !important;
+}
+
+[data-name="slide"].swiper-slide-active {
+  z-index: 5;
+}
+
+.mode-interact [data-name="slide"] [data-view="content"] {
+  border: 2px solid darkorange;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"] [data-view="content"]::before {
+  content: 'Slide content';
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"] [data-view="content"]:before {
+  border-bottom-right-radius: 10px;
+  cursor: grab;
+  position: absolute;
+  padding: 5px;
+  font-size: 12px;
+  color: white;
+  background: darkorange;
+  top: 40px;
+  z-index: 1;
+  left: 0;
+}
+
+.mode-interact .swiper-container-autoheight {
+  height: 100vh !important;
+  overflow-y: auto;
+}
+
+.mode-interact [data-widget-package="com.fliplet.slide"].swiper-slide {
+  opacity: 1 !important;
+}
