@@ -3,6 +3,10 @@ fl-helper[name="slide"] {
   padding-top: 0;
 }
 
+[data-widget-package="com.fliplet.slide"] {
+  min-height: 100vh;
+}
+
 .mode-interact [data-widget-package="com.fliplet.slide"] {
   padding-bottom: 40px;
   padding-top: 40px;

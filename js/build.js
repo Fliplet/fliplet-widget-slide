@@ -41,21 +41,6 @@ Fliplet.Widget.instance({
       } else {
         thisSlide.data.slideIndex++;
       }
-
-      setMinSlideHeight();
-
-      function setMinSlideHeight() {
-        let $bottomBar = $('[data-widget-package="com.fliplet.menu.bottom-bar"]:visible');
-        let $viewportHeader = $('.fl-viewport-header:visible');
-        let dataNotch = $('[data-has-notch]');
-        let bottomBarHeight = $bottomBar.length ? $bottomBar.outerHeight() : 0;
-        let viewportHeaderHeight = $viewportHeader.length ? $viewportHeader.outerHeight() : 0;
-        let notchHeight = dataNotch.length ? 34 : 0
-        let totalHeight = bottomBarHeight + viewportHeaderHeight + notchHeight;
-        let slideHeight = `calc(100vh - ${totalHeight}px)`;
-
-        $slideElement.css('min-height', slideHeight);
-      }
     }
   },
   views: [
