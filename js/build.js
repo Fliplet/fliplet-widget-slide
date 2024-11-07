@@ -11,6 +11,8 @@ Fliplet.Widget.instance({
     template: '<div data-view="content"></div>',
     ready: async function() {
       const thisSlide = this;
+      let $slide = $(thisSlide);
+      let $slideElement = $($slide[0].el);
 
       await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
