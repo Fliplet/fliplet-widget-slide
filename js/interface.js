@@ -20,7 +20,7 @@ Fliplet.Widget.generateInterface({
     {
       name: 'requiredFormForwardNavigation',
       type: 'radio',
-      label: 'Prevent users from moving to the next slide?',
+      label: 'Prevent users from moving to the next slide until a form is submitted',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
       ready: function() {
@@ -32,7 +32,7 @@ Fliplet.Widget.generateInterface({
     {
       name: 'requiredFormBackwardNavigation',
       type: 'radio',
-      label: 'Prevent users from moving to the previous slide?',
+      label: 'Prevent users from moving to the previous slide until a form is submitted',
       options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
       default: false,
       ready: function() {
