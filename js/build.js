@@ -15,7 +15,7 @@ Fliplet.Widget.instance({
       let $slideElement = $($slide[0].el);
 
       $slideElement.attr('tabindex', '0');
-      
+
       $slideElement.find('[data-view="content"]').attr('aria-label', `Slide ${thisSlide.data.slideIndex + 1}`);
 
       await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
@@ -23,28 +23,6 @@ Fliplet.Widget.instance({
       thisSlide.fields = _.assign({
         requiredForm: false
       }, thisSlide.fields);
-
-
-      if (Fliplet.FormBuilder) {
-        if (thisSlide.fields.requiredForm) {
-          Fliplet.FormBuilder.getAll().then(forms => {
-            thisSlide.preventNext = true;
-
-            thisSlide.data.sliderRequiredForms.push({
-              sliderId: $(forms[0].instance.$el
-                .closest('[name="slide"]')).attr('data-helper-id'),
-              slideIndex: thisSlide.data.slideIndex,
-              formIndex: thisSlide.data.formCount,
-              form: forms[thisSlide.data.formCount]
-            });
-          });
-        }
-
-        thisSlide.data.formCount++;
-        thisSlide.data.slideIndex++;
-      } else {
-        thisSlide.data.slideIndex++;
-      }
     }
   },
   views: [
