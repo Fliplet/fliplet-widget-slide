@@ -20,7 +20,7 @@ Fliplet.Widget.instance({
 
       await Fliplet.Widget.initializeChildren(thisSlide.$el, thisSlide);
 
-      thisSlide.fields = _.assign({
+      thisSlide.fields = Fliplet.Utils.assign({
         requiredForm: false
       }, thisSlide.fields);
 

@@ -32,6 +32,7 @@
       "jquery",
       "bootstrap",
       "fliplet-core",
+      "fliplet-utils",
       "fliplet-helper"
     ],
     "assets": [
