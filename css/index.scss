@@ -1,0 +1,335 @@
+/* UPDATE PACKAGE NAME AND VARIABLE PREFIX USING THE SAME VALUES AS "widget.json" */
+$packageName: 'com.fliplet.slide';
+$variablePrefix: "slide";
+
+/* ----------------------------------------------------- */
+
+@import "package:com.fliplet.theme.default/scss/core/variables";
+@import "package:com.fliplet.theme.default/scss/core/mixins";
+
+@mixin componentStyles($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  /* LIST HERE ALL VARIABLES FROM YOUR THEME, INCLUDING TABLET AND DESKTOP */
+  $configuration: map-merge((slide-containerBackgroundImage: $slide-containerBackgroundImage,
+        slide-containerBackgroundColor: $slide-containerBackgroundColor,
+        slide-containerBackgroundType: $slide-containerBackgroundType,
+        slide-containerBackgroundSize: $slide-containerBackgroundSize,
+        slide-containerBackgroundRepeat: $slide-containerBackgroundRepeat,
+        slide-containerBackgroundPosX: $slide-containerBackgroundPosX,
+        slide-containerBackgroundPosY: $slide-containerBackgroundPosY,
+
+        slide-containerPaddingTop: $slide-containerPaddingTop,
+        slide-containerPaddingRight: $slide-containerPaddingRight,
+        slide-containerPaddingBottom: $slide-containerPaddingBottom,
+        slide-containerPaddingLeft: $slide-containerPaddingLeft,
+
+        slide-containerBackgroundImageTablet: $slide-containerBackgroundImageTablet,
+        slide-containerBackgroundColorTablet: $slide-containerBackgroundColorTablet,
+        slide-containerBackgroundTypeTablet: $slide-containerBackgroundTypeTablet,
+        slide-containerBackgroundSizeTablet: $slide-containerBackgroundSizeTablet,
+        slide-containerBackgroundRepeatTablet: $slide-containerBackgroundRepeatTablet,
+        slide-containerBackgroundPosXTablet: $slide-containerBackgroundPosXTablet,
+        slide-containerBackgroundPosYTablet: $slide-containerBackgroundPosYTablet,
+
+        slide-containerPaddingTopTablet: $slide-containerPaddingTopTablet,
+        slide-containerPaddingRightTablet: $slide-containerPaddingRightTablet,
+        slide-containerPaddingBottomTablet: $slide-containerPaddingBottomTablet,
+        slide-containerPaddingLeftTablet: $slide-containerPaddingLeftTablet,
+
+        slide-containerBackgroundImageDesktop: $slide-containerBackgroundImageDesktop,
+        slide-containerBackgroundColorDesktop: $slide-containerBackgroundColorDesktop,
+        slide-containerBackgroundTypeDesktop: $slide-containerBackgroundTypeDesktop,
+        slide-containerBackgroundSizeDesktop: $slide-containerBackgroundSizeDesktop,
+        slide-containerBackgroundRepeatDesktop: $slide-containerBackgroundRepeatDesktop,
+        slide-containerBackgroundPosXDesktop: $slide-containerBackgroundPosXDesktop,
+        slide-containerBackgroundPosYDesktop: $slide-containerBackgroundPosYDesktop,
+    
+        slide-containerPaddingTopDesktop: $slide-containerPaddingTopDesktop,
+        slide-containerPaddingRightDesktop: $slide-containerPaddingRightDesktop,
+        slide-containerPaddingBottomDesktop: $slide-containerPaddingBottomDesktop,
+        slide-containerPaddingLeftDesktop: $slide-containerPaddingLeftDesktop
+        ),
+      $options);
+
+  $instanceSelector: '[data-widget-package="#{$packageName}"]';
+
+  @if $widgetInstanceUUID !="" {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  }
+
+  @else if $widgetInstanceId !="" {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    @if map-get($configuration, slide-containerBackgroundType)=="Image" {
+      @if map-get($configuration, slide-containerBackgroundImage)=="none" {
+        background-image: map-get($configuration, slide-containerBackgroundImage);
+      }
+
+      @else {
+        background-image: url("#{map-get($configuration, slide-containerBackgroundImage)}");
+      }
+    }
+
+    @else if map-get($configuration, slide-containerBackgroundType)=="Color" {
+      background-image: none;
+      background-color: map-get($configuration, slide-containerBackgroundColor);
+    }
+
+    @else {
+      background-image: none;
+      background-color: transparent;
+    }
+
+    background-size: map-get($configuration, slide-containerBackgroundSize);
+    background-repeat: map-get($configuration, slide-containerBackgroundRepeat);
+    background-position: map-get($configuration, slide-containerBackgroundPosX) map-get($configuration, slide-containerBackgroundPosY);
+
+    position: map-get($configuration, slide-containerPosition) !important;
+    z-index: map-get($configuration, slide-containerIndex);
+
+    @if map-get($configuration, slide-containerPosition) !="relative" {
+      top: map-get($configuration, slide-containerPositionTop);
+      right: map-get($configuration, slide-containerPositionRight);
+      bottom: map-get($configuration, slide-containerPositionBottom);
+      left: map-get($configuration, slide-containerPositionLeft);
+    }
+
+    @if map-get($configuration, slide-containerVisibility)=="hidden" {
+      display: none !important;
+    }
+
+    @else {
+      &:not(.hidden) {
+        @if map-get($configuration, slide-containerContentLayout)=="on" {
+          @if map-get($configuration, slide-containerDisplay)=="block" {
+            display: flex !important;
+          }
+
+          @else {
+            display: inline-flex !important;
+          }
+
+          flex-direction: map-get($configuration, slide-containerFlexDirection);
+          align-items: map-get($configuration, slide-containerFlexAlign);
+          justify-content: map-get($configuration, slide-containerFlexJustify);
+          flex-wrap: map-get($configuration, slide-containerFlexWrap);
+        }
+
+        @else {
+          display: map-get($configuration, slide-containerDisplay) !important;
+        }
+      }
+      
+      &.hidden {
+        display: none !important;
+      }
+    }
+
+    width: map-get($configuration, slide-containerWidth);
+    min-width: map-get($configuration, slide-containerMinWidth);
+    max-width: map-get($configuration, slide-containerMaxWidth);
+    height: map-get($configuration, slide-containerHeight) !important;
+    min-height: map-get($configuration, slide-containerMinHeight);
+    max-height: map-get($configuration, slide-containerMaxHeight);
+    overflow-x: map-get($configuration, slide-containerOverflowX);
+    overflow-y: map-get($configuration, slide-containerOverflowY);
+    margin: map-get($configuration, slide-containerMarginTop) map-get($configuration, slide-containerMarginRight) map-get($configuration, slide-containerMarginBottom) map-get($configuration, slide-containerMarginLeft);
+    padding: map-get($configuration, slide-containerPaddingTop) map-get($configuration, slide-containerPaddingRight) map-get($configuration, slide-containerPaddingBottom) map-get($configuration, slide-containerPaddingLeft);
+    @include borderOnly((borderSides: map-get($configuration, slide-containerBorderSides),
+        borderWidth: map-get($configuration, slide-containerBorderWidth),
+        borderStyle: map-get($configuration, slide-containerBorderStyle),
+        borderColor: map-get($configuration, slide-containerBorderColor)));
+    border-radius: map-get($configuration, slide-containerBorderRadius);
+    @include shadowOnly((shadowStyle: map-get($configuration, slide-containerShadowStyle),
+        shadowXOffset: map-get($configuration, slide-containerShadowXoffset),
+        shadowYOffset: map-get($configuration, slide-containerShadowYoffset),
+        shadowBlur: map-get($configuration, slide-containerShadowBlur),
+        shadowSpread: map-get($configuration, slide-containerShadowSpread),
+        shadowColor: map-get($configuration, slide-containerShadowColor)));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @if map-get($configuration, slide-containerBackgroundTypeTablet)=="Image" {
+        @if map-get($configuration, slide-containerBackgroundImageTablet)=="none" {
+          background-image: map-get($configuration, slide-containerBackgroundImageTablet);
+        }
+
+        @else {
+          background-image: url("#{map-get($configuration, slide-containerBackgroundImageTablet)}");
+        }
+      }
+
+      @else if map-get($configuration, slide-containerBackgroundTypeTablet)=="Color" {
+        background-image: none;
+        background-color: map-get($configuration, slide-containerBackgroundColorTablet);
+      }
+
+      @else {
+        background-image: none;
+        background-color: transparent;
+      }
+
+      background-size: map-get($configuration, slide-containerBackgroundSizeTablet);
+      background-repeat: map-get($configuration, slide-containerBackgroundRepeatTablet);
+      background-position: map-get($configuration, slide-containerBackgroundPosXTablet) map-get($configuration, slide-containerBackgroundPosYTablet);
+
+      position: map-get($configuration, slide-containerPositionTablet) !important;
+      z-index: map-get($configuration, slide-containerIndexTablet);
+
+      @if map-get($configuration, slide-containerPositionTablet) !="relative" {
+        top: map-get($configuration, slide-containerPositionTopTablet);
+        right: map-get($configuration, slide-containerPositionRightTablet);
+        bottom: map-get($configuration, slide-containerPositionBottomTablet);
+        left: map-get($configuration, slide-containerPositionLeftTablet);
+      }
+
+      @if map-get($configuration, slide-containerVisibilityTablet)=="hidden" {
+        display: none !important;
+      }
+
+      @else {
+        &:not(.hidden) {
+          @if map-get($configuration, slide-containerContentLayoutTablet)=="on" {
+            @if map-get($configuration, slide-containerDisplayTablet)=="block" {
+              display: flex !important;
+            }
+
+            @else {
+              display: inline-flex !important;
+            }
+
+            flex-direction: map-get($configuration, slide-containerFlexDirectionTablet);
+            align-items: map-get($configuration, slide-containerFlexAlignTablet);
+            justify-content: map-get($configuration, slide-containerFlexJustifyTablet);
+            flex-wrap: map-get($configuration, slide-containerFlexWrapTablet);
+          }
+
+          @else {
+            display: map-get($configuration, slide-containerDisplayTablet) !important;
+          }
+        }
+      }
+
+      width: map-get($configuration, slide-containerWidthTablet);
+      min-width: map-get($configuration, slide-containerMinWidthTablet);
+      max-width: map-get($configuration, slide-containerMaxWidthTablet);
+      height: map-get($configuration, slide-containerHeightTablet) !important;
+      min-height: map-get($configuration, slide-containerMinHeightTablet);
+      max-height: map-get($configuration, slide-containerMaxHeightTablet);
+      overflow-x: map-get($configuration, slide-containerOverflowXTablet);
+      overflow-y: map-get($configuration, slide-containerOverflowYTablet);
+      margin: map-get($configuration, slide-containerMarginTopTablet) map-get($configuration, slide-containerMarginRightTablet) map-get($configuration, slide-containerMarginBottomTablet) map-get($configuration, slide-containerMarginLeftTablet);
+      padding: map-get($configuration, slide-containerPaddingTopTablet) map-get($configuration, slide-containerPaddingRightTablet) map-get($configuration, slide-containerPaddingBottomTablet) map-get($configuration, slide-containerPaddingLeftTablet);
+      @include borderOnly((borderSides: map-get($configuration, containerBorderSidesTablet),
+          borderWidth: map-get($configuration, slide-containerBorderWidthTablet),
+          borderStyle: map-get($configuration, slide-containerBorderStyleTablet),
+          borderColor: map-get($configuration, slide-containerBorderColorTablet)));
+      border-radius: map-get($configuration, slide-containerBorderRadiusTablet);
+      @include shadowOnly((shadowStyle: map-get($configuration, slide-containerShadowStyleTablet),
+          shadowXOffset: map-get($configuration, slide-containerShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, slide-containerShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, slide-containerShadowBlurTablet),
+          shadowSpread: map-get($configuration, slide-containerShadowSpreadTablet),
+          shadowColor: map-get($configuration, slide-containerShadowColorTablet)));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @if map-get($configuration, slide-containerBackgroundTypeDesktop)=="Image" {
+        @if map-get($configuration, slide-containerBackgroundImageDesktop)=="none" {
+          background-image: map-get($configuration, slide-containerBackgroundImageDesktop);
+        }
+
+        @else {
+          background-image: url("#{map-get($configuration, slide-containerBackgroundImageDesktop)}");
+        }
+      }
+
+      @else if map-get($configuration, slide-containerBackgroundTypeDesktop)=="Color" {
+        background-image: none;
+        background-color: map-get($configuration, slide-containerBackgroundColorDesktop);
+      }
+
+      @else {
+        background-image: none;
+        background-color: transparent;
+      }
+
+      background-size: map-get($configuration, slide-containerBackgroundSizeDesktop);
+      background-repeat: map-get($configuration, slide-containerBackgroundRepeatDesktop);
+      background-position: map-get($configuration, slide-containerBackgroundPosXDesktop) map-get($configuration, slide-containerBackgroundPosYDesktop);
+
+      position: map-get($configuration, slide-containerPositionDesktop) !important;
+      z-index: map-get($configuration, slide-containerIndexDesktop);
+
+      @if map-get($configuration, slide-containerPositionDesktop) !="relative" {
+        top: map-get($configuration, slide-containerPositionTopDesktop);
+        right: map-get($configuration, slide-containerPositionRightDesktop);
+        bottom: map-get($configuration, slide-containerPositionBottomDesktop);
+        left: map-get($configuration, slide-containerPositionLeftDesktop);
+      }
+
+      @if map-get($configuration, slide-containerVisibilityDesktop)=="hidden" {
+        display: none !important;
+      }
+
+      @else {
+        &:not(.hidden) {
+          @if map-get($configuration, slide-containerContentLayoutDesktop)=="on" {
+            @if map-get($configuration, slide-containerDisplayDesktop)=="block" {
+              display: flex !important;
+            }
+
+            @else {
+              display: inline-flex !important;
+            }
+
+            flex-direction: map-get($configuration, slide-containerFlexDirectionDesktop);
+            align-items: map-get($configuration, slide-containerFlexAlignDesktop);
+            justify-content: map-get($configuration, slide-containerFlexJustifyDesktop);
+            flex-wrap: map-get($configuration, slide-containerFlexWrapDesktop);
+          }
+
+          @else {
+            display: map-get($configuration, slide-containerDisplayDesktop) !important;
+          }
+        }
+      }
+
+      width: map-get($configuration, slide-containerWidthDesktop);
+      min-width: map-get($configuration, slide-containerMinWidthDesktop);
+      max-width: map-get($configuration, slide-containerMaxWidthDesktop);
+      height: map-get($configuration, slide-containerHeightDesktop) !important;
+      min-height: map-get($configuration, slide-containerMinHeightDesktop);
+      max-height: map-get($configuration, slide-containerMaxHeightDesktop);
+      overflow-x: map-get($configuration, slide-containerOverflowXDesktop);
+      overflow-y: map-get($configuration, slide-containerOverflowYDesktop);
+      margin: map-get($configuration, slide-containerMarginTopDesktop) map-get($configuration, slide-containerMarginRightDesktop) map-get($configuration, containerMarginBottomDesktop) map-get($configuration, containerMarginLeftDesktop);
+      padding: map-get($configuration, slide-containerPaddingTopDesktop) map-get($configuration, slide-containerPaddingRightDesktop) map-get($configuration, containerPaddingBottomDesktop) map-get($configuration, containerPaddingLeftDesktop);
+      @include borderOnly((borderSides: map-get($configuration, slide-containerBorderSidesDesktop),
+          borderWidth: map-get($configuration, slide-containerBorderWidthDesktop),
+          borderStyle: map-get($configuration, slide-containerBorderStyleDesktop),
+          borderColor: map-get($configuration, slide-containerBorderColorDesktop)));
+      border-radius: map-get($configuration, slide-containerBorderRadiusDesktop);
+      @include shadowOnly((shadowStyle: map-get($configuration, slide-containerShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, slide-containerShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, slide-containerShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, slide-containerShadowBlurDesktop),
+          shadowSpread: map-get($configuration, slide-containerShadowSpreadDesktop),
+          shadowColor: map-get($configuration, slide-containerShadowColorDesktop)));
+    }
+  }
+}
+
+/* Export common styles */
+@include componentStyles();
+
+/* Export styles for each widget instance */
+@if variable-exists(widgetInstances) {
+  @each $widgetInstance in $widgetInstances {
+    @if nth($widgetInstance, 2)==$variablePrefix {
+      @include componentStyles(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
+  }
+}

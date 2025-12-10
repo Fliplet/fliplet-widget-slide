@@ -14,8 +14,7 @@
   ],
   "settings": {
     "asyncRendering": true,
-    "interfaceWidgetPackage": "com.fliplet.helper-configuration",
-    "hideThemeSettings": true
+    "interfaceWidgetPackage": "com.fliplet.helper-configuration"
   },
   "html_tag": "div",
   "interface": {
@@ -36,8 +35,311 @@
     ],
     "assets": [
       "css/build.css",
-      "js/build.js"
+      "js/build.js",
+      "css/index.scss"
     ],
     "appAssets": []
+  },
+  "themeSettings": {
+    "variablePrefix": "slide",
+    "variables": [
+      {
+        "description": "Background",
+        "fields": [
+          {
+            "name": "containerBackgroundType",
+            "default": "None",
+            "columns": 12,
+            "logic": {
+              "None": {
+                "hide": [
+                  "slide-containerBackgroundImage",
+                  "slide-containerBackgroundPosX",
+                  "slide-containerBackgroundPosY",
+                  "slide-containerBackgroundSize",
+                  "slide-containerBackgroundRepeat",
+                  "slide-containerBackgroundColor"
+                ]
+              },
+              "Color": {
+                "hide": [
+                  "slide-containerBackgroundImage",
+                  "slide-containerBackgroundPosX",
+                  "slide-containerBackgroundPosY",
+                  "slide-containerBackgroundSize",
+                  "slide-containerBackgroundRepeat"
+                ],
+                "show": ["slide-containerBackgroundColor"]
+              },
+              "Image": {
+                "hide": ["slide-containerBackgroundColor"],
+                "show": [
+                  "slide-containerBackgroundImage",
+                  "slide-containerBackgroundPosX",
+                  "slide-containerBackgroundPosY",
+                  "slide-containerBackgroundSize",
+                  "slide-containerBackgroundRepeat"
+                ]
+              }
+            },
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundTypeTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundTypeDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "background",
+            "properties": "background"
+          },
+          {
+            "name": "containerBackgroundColor",
+            "default": "$bodyBackground",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-color"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundColorTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundColorDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "color"
+          },
+          {
+            "name": "containerBackgroundImage",
+            "default": "none",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-image"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundImageTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundImageDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "image"
+          },
+          {
+            "name": "containerBackgroundPosX",
+            "default": "center",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-position-x"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundPosXTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundPosXDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "align",
+            "orientation": "horizontal",
+            "properties": "alignHorizontal"
+          },
+          {
+            "name": "containerBackgroundPosY",
+            "default": "center",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-position-y"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundPosYTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundPosYDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "align",
+            "orientation": "vertical",
+            "properties": "alignVertical"
+          },
+          {
+            "name": "containerBackgroundSize",
+            "default": "cover",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-size"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundSizeTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundSizeDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "label": "Size",
+            "type": "select",
+            "properties": {
+              "cover": "Expand to fill",
+              "contain": "Contained",
+              "auto": "Keep original size"
+            }
+          },
+          {
+            "name": "containerBackgroundRepeat",
+            "default": "no-repeat",
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["background-repeat"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerBackgroundRepeatTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerBackgroundRepeatDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "label": "Repeat",
+            "type": "select",
+            "properties": {
+              "no-repeat": "Do not repeat",
+              "repeat-x": "Repeat horizontally",
+              "repeat-y": "Repeat vertically"
+            }
+          }
+        ]
+      },
+      {
+        "description": "Padding",
+        "fields": [
+          {
+            "name": "containerPaddingTop",
+            "default": "0px",
+            "columns": 6,
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["padding-top"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerPaddingTopTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerPaddingTopDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "size",
+            "subtype": "padding",
+            "label": "Top"
+          },
+          {
+            "name": "containerPaddingRight",
+            "default": "0px",
+            "columns": 6,
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["padding-right"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerPaddingRightTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerPaddingRightDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "size",
+            "subtype": "padding",
+            "label": "Right"
+          },
+          {
+            "name": "containerPaddingBottom",
+            "default": "0px",
+            "columns": 6,
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["padding-bottom"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerPaddingBottomTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerPaddingBottomDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "size",
+            "subtype": "padding",
+            "label": "Bottom"
+          },
+          {
+            "name": "containerPaddingLeft",
+            "default": "0px",
+            "columns": 6,
+            "styles": [
+              {
+                "parentSelector": "[data-widget-package='com.fliplet.slide']",
+                "properties": ["padding-left"]
+              }
+            ],
+            "breakpoints": {
+              "tablet": {
+                "name": "containerPaddingLeftTablet",
+                "default": "inherit-mobile"
+              },
+              "desktop": {
+                "name": "containerPaddingLeftDesktop",
+                "default": "inherit-tablet"
+              }
+            },
+            "type": "size",
+            "subtype": "padding",
+            "label": "Left"
+          }
+        ]
+      }
+    ]
   }
 }
