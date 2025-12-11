@@ -4,7 +4,7 @@ fl-helper[name="slide"] {
 }
 
 [data-widget-package="com.fliplet.slider-container"] [data-widget-package="com.fliplet.slide"] {
-  min-height: calc(100dvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px))!important;
+  min-height: calc(100dvh - (env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)))!important;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
