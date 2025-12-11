@@ -83,7 +83,7 @@ fl-helper[name="slide"] {
 }
 
 .mode-interact .swiper-container-autoheight {
-  height: 100vh !important;
+  height: calc(100dvh - (env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)))!important;
   overflow-y: auto;
 }
 
