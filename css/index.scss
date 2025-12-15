@@ -1,0 +1,159 @@
+/* UPDATE PACKAGE NAME AND VARIABLE PREFIX USING THE SAME VALUES AS "widget.json" */
+$packageName: 'com.fliplet.slide';
+$variablePrefix: "slide";
+
+/* ----------------------------------------------------- */
+
+@import "package:com.fliplet.theme.default/scss/core/variables";
+@import "package:com.fliplet.theme.default/scss/core/mixins";
+
+@mixin componentStyles($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  /* LIST HERE ALL VARIABLES FROM YOUR THEME, INCLUDING TABLET AND DESKTOP */
+  $configuration: map-merge((slide-containerBackgroundImage: $slide-containerBackgroundImage,
+        slide-containerBackgroundColor: $slide-containerBackgroundColor,
+        slide-containerBackgroundType: $slide-containerBackgroundType,
+        slide-containerBackgroundSize: $slide-containerBackgroundSize,
+        slide-containerBackgroundRepeat: $slide-containerBackgroundRepeat,
+        slide-containerBackgroundPosX: $slide-containerBackgroundPosX,
+        slide-containerBackgroundPosY: $slide-containerBackgroundPosY,
+
+        slide-containerPaddingTop: $slide-containerPaddingTop,
+        slide-containerPaddingRight: $slide-containerPaddingRight,
+        slide-containerPaddingBottom: $slide-containerPaddingBottom,
+        slide-containerPaddingLeft: $slide-containerPaddingLeft,
+
+        slide-containerBackgroundImageTablet: $slide-containerBackgroundImageTablet,
+        slide-containerBackgroundColorTablet: $slide-containerBackgroundColorTablet,
+        slide-containerBackgroundTypeTablet: $slide-containerBackgroundTypeTablet,
+        slide-containerBackgroundSizeTablet: $slide-containerBackgroundSizeTablet,
+        slide-containerBackgroundRepeatTablet: $slide-containerBackgroundRepeatTablet,
+        slide-containerBackgroundPosXTablet: $slide-containerBackgroundPosXTablet,
+        slide-containerBackgroundPosYTablet: $slide-containerBackgroundPosYTablet,
+
+        slide-containerPaddingTopTablet: $slide-containerPaddingTopTablet,
+        slide-containerPaddingRightTablet: $slide-containerPaddingRightTablet,
+        slide-containerPaddingBottomTablet: $slide-containerPaddingBottomTablet,
+        slide-containerPaddingLeftTablet: $slide-containerPaddingLeftTablet,
+
+        slide-containerBackgroundImageDesktop: $slide-containerBackgroundImageDesktop,
+        slide-containerBackgroundColorDesktop: $slide-containerBackgroundColorDesktop,
+        slide-containerBackgroundTypeDesktop: $slide-containerBackgroundTypeDesktop,
+        slide-containerBackgroundSizeDesktop: $slide-containerBackgroundSizeDesktop,
+        slide-containerBackgroundRepeatDesktop: $slide-containerBackgroundRepeatDesktop,
+        slide-containerBackgroundPosXDesktop: $slide-containerBackgroundPosXDesktop,
+        slide-containerBackgroundPosYDesktop: $slide-containerBackgroundPosYDesktop,
+    
+        slide-containerPaddingTopDesktop: $slide-containerPaddingTopDesktop,
+        slide-containerPaddingRightDesktop: $slide-containerPaddingRightDesktop,
+        slide-containerPaddingBottomDesktop: $slide-containerPaddingBottomDesktop,
+        slide-containerPaddingLeftDesktop: $slide-containerPaddingLeftDesktop
+        ),
+      $options);
+
+  $instanceSelector: '[data-widget-package="#{$packageName}"]';
+
+  @if $widgetInstanceUUID !="" {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  }
+
+  @else if $widgetInstanceId !="" {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    @if map-get($configuration, slide-containerBackgroundType)=="Image" {
+      @if map-get($configuration, slide-containerBackgroundImage)=="none" {
+        background-image: map-get($configuration, slide-containerBackgroundImage);
+      }
+
+      @else {
+        background-image: url("#{map-get($configuration, slide-containerBackgroundImage)}");
+      }
+    }
+
+    @else if map-get($configuration, slide-containerBackgroundType)=="Color" {
+      background-image: none;
+      background-color: map-get($configuration, slide-containerBackgroundColor);
+    }
+
+    @else {
+      background-image: none;
+      background-color: transparent;
+    }
+
+    background-size: map-get($configuration, slide-containerBackgroundSize);
+    background-repeat: map-get($configuration, slide-containerBackgroundRepeat);
+    background-position: map-get($configuration, slide-containerBackgroundPosX) map-get($configuration, slide-containerBackgroundPosY);
+
+    padding: map-get($configuration, slide-containerPaddingTop) map-get($configuration, slide-containerPaddingRight) map-get($configuration, slide-containerPaddingBottom) map-get($configuration, slide-containerPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @if map-get($configuration, slide-containerBackgroundTypeTablet)=="Image" {
+        @if map-get($configuration, slide-containerBackgroundImageTablet)=="none" {
+          background-image: map-get($configuration, slide-containerBackgroundImageTablet);
+        }
+
+        @else {
+          background-image: url("#{map-get($configuration, slide-containerBackgroundImageTablet)}");
+        }
+      }
+
+      @else if map-get($configuration, slide-containerBackgroundTypeTablet)=="Color" {
+        background-image: none;
+        background-color: map-get($configuration, slide-containerBackgroundColorTablet);
+      }
+
+      @else {
+        background-image: none;
+        background-color: transparent;
+      }
+
+      background-size: map-get($configuration, slide-containerBackgroundSizeTablet);
+      background-repeat: map-get($configuration, slide-containerBackgroundRepeatTablet);
+      background-position: map-get($configuration, slide-containerBackgroundPosXTablet) map-get($configuration, slide-containerBackgroundPosYTablet);
+
+      padding: map-get($configuration, slide-containerPaddingTopTablet) map-get($configuration, slide-containerPaddingRightTablet) map-get($configuration, slide-containerPaddingBottomTablet) map-get($configuration, slide-containerPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @if map-get($configuration, slide-containerBackgroundTypeDesktop)=="Image" {
+        @if map-get($configuration, slide-containerBackgroundImageDesktop)=="none" {
+          background-image: map-get($configuration, slide-containerBackgroundImageDesktop);
+        }
+
+        @else {
+          background-image: url("#{map-get($configuration, slide-containerBackgroundImageDesktop)}");
+        }
+      }
+
+      @else if map-get($configuration, slide-containerBackgroundTypeDesktop)=="Color" {
+        background-image: none;
+        background-color: map-get($configuration, slide-containerBackgroundColorDesktop);
+      }
+
+      @else {
+        background-image: none;
+        background-color: transparent;
+      }
+
+      background-size: map-get($configuration, slide-containerBackgroundSizeDesktop);
+      background-repeat: map-get($configuration, slide-containerBackgroundRepeatDesktop);
+      background-position: map-get($configuration, slide-containerBackgroundPosXDesktop) map-get($configuration, slide-containerBackgroundPosYDesktop);
+      padding: map-get($configuration, slide-containerPaddingTopDesktop) map-get($configuration, slide-containerPaddingRightDesktop) map-get($configuration, containerPaddingBottomDesktop) map-get($configuration, containerPaddingLeftDesktop);
+    }
+  }
+}
+
+/* Export common styles */
+@include componentStyles();
+
+/* Export styles for each widget instance */
+@if variable-exists(widgetInstances) {
+  @each $widgetInstance in $widgetInstances {
+    @if nth($widgetInstance, 2)==$variablePrefix {
+      @include componentStyles(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
+  }
+}
